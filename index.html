@@ -156,7 +156,23 @@
         <img src="1000108807.jpg">
         <img src="1000110461.jpg">
     </div>
+   <button onclick="showLove()">Click Me ❤️</button>
 
+   <div id="loveMessage" class="hidden">
+       <h1 class="valentine-text">Happy Valentine's Day ❤️</h1>
+       <p class="romantic-message">
+           No matter what happens in life,  
+            I promise to stand beside you,  
+            love you endlessly,  
+            and choose you every single day.❤️
+           </p>
+   </div>
+
+   <script>
+   function showLove() {
+       document.getElementById("loveMessage").classList.remove("hidden");
+   }
+   </script>
     <div class="love-button" onclick="showPopup()"> Just a Click Darling 💌</div>
 
     <footer>
@@ -208,6 +224,7 @@
 
 </body>
 </html>
+
 
 
 
