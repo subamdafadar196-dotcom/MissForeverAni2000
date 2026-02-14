@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>For My Miss Forever 💖</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -12,6 +11,7 @@
             background: linear-gradient(135deg, #ff6a88, #ff99ac);
             color: white;
             text-align: center;
+            overflow-x: hidden;
         }
 
         h1 {
@@ -27,7 +27,7 @@
             padding: 0 20px;
         }
 
-        /* ===== GALLERY SECTION ===== */
+        /* ===== GALLERY ===== */
 
         .gallery {
             display: grid;
@@ -63,6 +63,7 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
         }
 
@@ -71,24 +72,68 @@
             transform: scale(1.05);
         }
 
-        footer {
-            margin: 40px 0;
-            font-size: 18px;
+        /* ===== POPUP ===== */
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #ff4d6d;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            width: 80%;
+            max-width: 400px;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
         }
 
-        /* ===== HEART BACKGROUND ===== */
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 8px 20px;
+            border: none;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        /* ===== FLOATING HEARTS ===== */
 
         .heart {
             position: fixed;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 40px;
-            animation: float 6s infinite ease-in-out;
+            bottom: -50px;
+            font-size: 25px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            margin: 40px 0;
+            font-size: 18px;
         }
 
     </style>
@@ -99,10 +144,11 @@
     <h1>For My Miss Forever 💖</h1>
 
     <div class="message">
-        Dear SweetHeart, my Miss Forever...  
-        From the moment you entered my life, everything seems changing!!  
-        Your smile is my peace, your voice is my comfort, and your love is my greatest blessing.  
-        I choose you today, tomorrow, and forever. ❤️
+        Dear Sweetheart, my Miss Forever...  
+        You are not just a part of my life — you are the reason it feels alive. 
+        In your laughter, I hear my favorite melody. In your eyes, I see my forever. 
+        If love had a definition, it would be your name written gently across my heart. 
+        Today, tomorrow, and in every tomorrow after that — I choose you. ❤️
     </div>
 
     <div class="gallery">
@@ -114,12 +160,50 @@
         <img src="1000112634.jpg">
     </div>
 
-    <a href="#" class="love-button">Click Here Miss Forever 💌</a>
+    <div class="love-button" onclick="showPopup()">Click Here Miss Forever 💌</div>
 
     <footer>
         Made with infinite love by Your Forever Person ❤️
     </footer>
 
+    <!-- POPUP -->
+    <div class="popup" id="lovePopup">
+        <h2>Forever With You ❤️</h2>
+        <p>
+            No matter what happens in life,  
+            I promise to stand beside you,  
+            love you endlessly,  
+            and choose you every single day. 💖
+        </p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function showPopup() {
+            document.getElementById("lovePopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("lovePopup").style.display = "none";
+        }
+
+        // Floating hearts generator
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
 </body>
 </html>
-
