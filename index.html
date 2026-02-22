@@ -1,231 +1,300 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>For My Miss Forever 💖</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anindita 🎂💖</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #ff6a88, #ff99ac);
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-        h1 {
-            margin-top: 50px;
-            font-size: 40px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff6a88, #ff99ac, #ffd1dc);
+    overflow-x: hidden;
+    text-align: center;
+    color: white;
+}
 
-        .message {
-            max-width: 900px;
-            margin: 30px auto;
-            font-size: 20px;
-            line-height: 1.6;
-            padding: 0 20px;
-        }
+/* Start Screen */
+#startScreen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg,#ff4d6d,#ff99ac);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
 
-        /* ===== GALLERY ===== */
+#startScreen h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+.start-btn {
+    padding: 15px 35px;
+    font-size: 22px;
+    border: none;
+    border-radius: 40px;
+    background: white;
+    color: #ff2e63;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .gallery img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
+.start-btn:hover {
+    transform: scale(1.1);
+    background: #ffe5ec;
+}
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
+/* Title */
+.main-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    margin-top: 40px;
+    animation: float 3s ease-in-out infinite;
+}
 
-        /* ===== BUTTON ===== */
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
 
-        .love-button {
-            display: inline-block;
-            margin: 40px 0;
-            padding: 15px 35px;
-            background: white;
-            color: #ff4d6d;
-            font-size: 20px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.name {
+    text-shadow: 0 0 25px #ff2e63;
+}
 
-        .love-button:hover {
-            background: #ffe5ec;
-            transform: scale(1.05);
-        }
+/* Message */
+.message {
+    max-width: 900px;
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 1.8;
+    padding: 0 20px;
+}
 
-        /* ===== POPUP ===== */
+/* Gift Box */
+.gift {
+    font-size: 120px;
+    cursor: pointer;
+    transition: 0.4s;
+}
 
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            color: #ff4d6d;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            width: 80%;
-            max-width: 400px;
-            z-index: 1000;
-            animation: fadeIn 0.5s ease;
-        }
+.gift:hover {
+    transform: scale(1.2) rotate(8deg);
+}
 
-        .popup h2 {
-            margin-top: 0;
-        }
+.hidden {
+    display: none;
+}
 
-        .close-btn {
-            margin-top: 20px;
-            padding: 8px 20px;
-            border: none;
-            background: #ff4d6d;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-        }
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
+.gallery img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.4s;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
 
-        /* ===== FLOATING HEARTS ===== */
+.gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 50px rgba(255,255,255,0.7);
+}
 
-        .heart {
-            position: fixed;
-            bottom: -50px;
-            font-size: 25px;
-            animation: floatUp linear infinite;
-            opacity: 0.7;
-        }
+/* Button */
+.btn {
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 40px;
+    background: white;
+    color: #ff2e63;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 20px;
+}
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-110vh) scale(1.5);
-                opacity: 0;
-            }
-        }
+.btn:hover {
+    transform: scale(1.1);
+    background: #ffe5ec;
+}
 
-        footer {
-            margin: 40px 0;
-            font-size: 18px;
-        }
+/* Popup Letter */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    background: white;
+    color: #ff2e63;
+    padding: 35px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    z-index: 1000;
+    animation: popUp 0.5s forwards;
+}
 
-    </style>
+@keyframes popUp {
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Floating Hearts & Balloons */
+.float {
+    position: fixed;
+    bottom: -50px;
+    font-size: 26px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+footer {
+    margin: 40px 0;
+    font-size: 18px;
+}
+</style>
 </head>
 
 <body>
 
-    <h1>For My Miss Forever 💖</h1>
+<!-- START SCREEN (Plays Music) -->
+<div id="startScreen">
+    <h1>🎁 A Special Birthday Surprise for Anindita 💖</h1>
+    <button class="start-btn" onclick="startSurprise()">Tap to Open Your Surprise 🎂</button>
+</div>
 
-    <div class="message">
-        <p>Dear Sweetheart..... </p> 
-       <p>You are not just a part of my life — you are the reason it feels alive. 
-        In your laughter, I hear my favorite melody. In your eyes, I see my forever. 
-        If love had a definition, it would be your name written gently across my heart. 
-        Today, tomorrow, and in every tomorrow after that — I choose you. ❤️
-        </p> 
-    </div>
+<!-- HAPPY BIRTHDAY MUSIC (Embedded Autoplay) -->
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b3e9c2b6.mp3?filename=happy-birthday-to-you-piano-version-13976.mp3" type="audio/mp3">
+</audio>
+
+<h1 class="main-title">
+Happy Birthday <span class="name">Anindita Sarkar</span> 🎂💖
+</h1>
+
+<div class="message">
+    <p>My Dearest Anindita,</p>
+    <p>
+        Today is the day the world became more beautiful because you were born. ✨  
+        Your smile is my happiness,  
+        your voice is my comfort,  
+        and your love is my greatest blessing. 💖  
+        I am so lucky to have you in my life.  
+        On your special day, I just want to say —  
+        I will love you today, tomorrow, and forever. ❤️🎂
+    </p>
+</div>
+
+<div>
+    <div class="gift" onclick="openGift()">🎁</div>
+    <p>Click the Gift for Your Birthday Surprise 💝</p>
+</div>
+
+<!-- SURPRISE SECTION -->
+<div id="surprise" class="hidden">
+    <h2>💖 Our Beautiful Memories 💖</h2>
 
     <div class="gallery">
-        <img src="1000106451.jpg">
-        <img src="1000108807.jpg">
-        <img src="1000110461.jpg">
-    </div>
-   
-
-   <div id="loveMessage" class="hidden">
-       <h1 class="valentine-text">Happy Valentine's Day ❤️</h1>
-   </div>
-
-   <script>
-   function showLove() {
-       document.getElementById("loveMessage").classList.remove("hidden");
-   }
-   </script>
-    <div class="love-button" onclick="showPopup()"> Click me!! 💌</div>
-
-    <footer>
-        Made with infinite love by Your Forever Person ❤️
-    </footer>
-
-    <!-- POPUP -->
-    <div class="popup" id="lovePopup">
-        <h2>Forever With You ❤️</h2>
-        <p>
-            No matter what happens in life,  
-            I promise to stand beside you,  
-            love you endlessly,  
-            and choose you every single day. 💖
-        </p>
-
-        <button class="close-btn" onclick="closePopup()">Close</button>
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
     </div>
 
-    <!-- SCRIPT -->
-    <script>
-        function showPopup() {
-            document.getElementById("lovePopup").style.display = "block";
-        }
+    <button class="btn" onclick="openLetter()">Open My Love Letter 💌</button>
+</div>
 
-        function closePopup() {
-            document.getElementById("lovePopup").style.display = "none";
-        }
+<!-- LOVE LETTER -->
+<div class="popup" id="letter">
+    <h2>To My Love, Anindita 💖</h2>
+    <p>
+        No matter how many birthdays come in life,  
+        my love for you will always grow stronger.  
+        You are not just my love,  
+        you are my peace, my happiness, and my forever.  
+        I promise to stand beside you, support you,  
+        and love you endlessly in every moment of life.  
+        Happy Birthday, my sweetheart. ❤️🎂
+    </p>
+    <button class="btn" onclick="closeLetter()">Close</button>
+</div>
 
-        // Floating hearts generator
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-            document.body.appendChild(heart);
+<footer>
+Made with Infinite Love for Anindita ❤️
+</footer>
 
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
+<script>
+// Start Surprise + Play Music
+function startSurprise() {
+    document.getElementById("bgMusic").play();
+    document.getElementById("startScreen").style.display = "none";
+}
 
-        setInterval(createHeart, 500);
-    </script>
+// Open Gift Surprise
+function openGift() {
+    document.getElementById("surprise").classList.remove("hidden");
+    confettiBlast();
+}
+
+// Love Letter Popup
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+}
+
+function closeLetter() {
+    document.getElementById("letter").style.display = "none";
+}
+
+// Floating Hearts & Balloons
+function createFloat() {
+    const el = document.createElement("div");
+    el.classList.add("float");
+    el.innerHTML = Math.random() > 0.5 ? "💖" : "🎈";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 7000);
+}
+setInterval(createFloat, 400);
+
+// Confetti Blast
+function confettiBlast() {
+    for (let i = 0; i < 100; i++) {
+        let c = document.createElement("div");
+        c.innerHTML = "✨";
+        c.style.position = "fixed";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.top = "-20px";
+        c.style.fontSize = "22px";
+        c.style.animation = "floatUp 4s linear";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+    }
+}
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
