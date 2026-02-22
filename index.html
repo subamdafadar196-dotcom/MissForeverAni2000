@@ -214,9 +214,26 @@ Happy Birthday <span class="name">Anindita Sarkar</span> 🎂💖
     <p>Click the Gift for Your Birthday Surprise 💝</p>
 </div>
 
-<!-- SURPRISE SECTION -->
+<!-- SURPRISE SECTION (VIDEO + PHOTOS) -->
 <div id="surprise" class="hidden">
 
+    <h2 style="font-size:32px; margin-top:20px;">
+        🎥 A Special Birthday Message For You Anindita 💖
+    </h2>
+
+    <!-- BIRTHDAY VIDEO -->
+    <div style="max-width:800px; margin: 20px auto;">
+        <video id="birthdayVideo" width="100%" controls autoplay style="
+            border-radius:20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);">
+            <source src="Anindita_Bwish.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <h2 style="margin-top:30px;">💖 Our Beautiful Memories 💖</h2>
+
+    <!-- PHOTO GALLERY -->
     <div class="gallery">
         <img src="1000106451.jpg"> 
         <img src="1000106466.jpg"> 
@@ -258,8 +275,25 @@ function startSurprise() {
 
 // Open Gift Surprise
 function openGift() {
+    // Show surprise section
     document.getElementById("surprise").classList.remove("hidden");
+
+    // Play video automatically
+    const video = document.getElementById("birthdayVideo");
+    if (video) {
+        video.currentTime = 0;
+        video.play().catch(() => {
+            console.log("Autoplay blocked, user interaction required.");
+        });
+    }
+
+    // Confetti animation
     confettiBlast();
+
+    // Smooth scroll to video
+    document.getElementById("surprise").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 // Love Letter Popup
@@ -301,6 +335,7 @@ function confettiBlast() {
 
 </body>
 </html>
+
 
 
 
