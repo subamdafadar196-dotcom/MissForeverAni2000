@@ -95,27 +95,103 @@ body {
 }
 
 /* Gallery */
+/* Video Container (Smaller & Mobile Friendly) */
+.video-container {
+    max-width: 520px;   /* smaller video screen */
+    width: 90%;
+    margin: 20px auto;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Gallery (Responsive) */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    padding: 30px;
-    max-width: 1100px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 20px;
+    max-width: 900px;
     margin: auto;
 }
 
 .gallery img {
     width: 100%;
-    height: 520px;
+    height: 180px; /* smaller for mobile */
     object-fit: cover;
-    border-radius: 20px;
-    transition: 0.4s;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border-radius: 14px;
+    transition: 0.3s;
 }
 
-.gallery img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 20px 50px rgba(255,255,255,0.7);
+/* 📱 MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    .main-title {
+        font-size: 34px;
+        margin-top: 25px;
+        padding: 0 10px;
+    }
+
+    #startScreen h1 {
+        font-size: 28px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .message {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 15px;
+    }
+
+    .gift {
+        font-size: 90px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .gallery img {
+        height: 150px;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-size: 22px !important;
+        padding: 0 10px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+    .main-title {
+        font-size: 28px;
+    }
+
+    .video-container {
+        width: 95%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* 1 image per row for very small screens */
+    }
 }
 
 /* Button */
@@ -222,14 +298,14 @@ Happy Birthday <span class="name">Anindita Sarkar</span> 🎂💖
     </h2>
 
     <!-- BIRTHDAY VIDEO -->
-    <div style="max-width:800px; margin: 20px auto;">
-        <video id="birthdayVideo" width="100%" controls autoplay style="
-            border-radius:20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);">
-            <source src="Anindita_Bwish.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+    <div class="video-container">
+    <video id="birthdayVideo" controls playsinline style="
+        border-radius:16px;
+        width:100%;">
+        <source src="Anindita_Bwish.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
     <h2 style="margin-top:30px;">💖 Our Beautiful Memories 💖</h2>
 
@@ -335,6 +411,7 @@ function confettiBlast() {
 
 </body>
 </html>
+
 
 
 
