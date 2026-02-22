@@ -166,11 +166,25 @@ body {
 /* Portrait Image Style (No distortion on Android) */
 .gallery img {
     width: 100%;
-    aspect-ratio: 3 / 4;   /* vertical portrait shape */
-    object-fit: cover;     /* fills nicely without white gaps */
+    height: 420px;          /* Increased height (taller images) */
+    object-fit: contain;    /* Shows full image (no face cut) */
+    background: #00000020;  /* soft background instead of blank space */
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
+    padding: 6px;           /* makes it look aesthetic */
+}
+    @media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr; /* One image per row */
+        gap: 16px;
+        padding: 15px;
+    }
+
+    .gallery img {
+        height: 480px;      /* Taller on phone (no face cut) */
+        object-fit: contain; /* Full image visible */
+        border-radius: 14px;
+    }
 }
 
 /* Hover effect (desktop only) */
@@ -450,6 +464,7 @@ function confettiBlast() {
 
 </body>
 </html>
+
 
 
 
